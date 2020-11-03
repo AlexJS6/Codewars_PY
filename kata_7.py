@@ -20,3 +20,13 @@ def get_middle(s):
         return s[int(length/2-1)] + s[int(length/2)]
     else:
         return s[floor(length/2)]
+
+
+
+#https://www.codewars.com/kata/546e2562b03326a88e000020/train/python
+def square_digits(num):
+    string, result = str(num), ''
+    for num in string:
+        mysqr = str(int(num) * int(num))
+        result += mysqr
+    return int(result)
