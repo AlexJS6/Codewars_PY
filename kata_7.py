@@ -30,3 +30,12 @@ def square_digits(num):
         mysqr = str(int(num) * int(num))
         result += mysqr
     return int(result)
+
+
+
+#https://www.codewars.com/kata/57cebe1dc6fdc20c57000ac9/train/python
+def find_short(s):
+    new_list, num = s.split(' '), 100
+    for word in new_list:
+        if len(word) < num: num = len(word)
+    return num
