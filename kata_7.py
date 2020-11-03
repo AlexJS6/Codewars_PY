@@ -6,3 +6,6 @@ def get_count(input_str):
             num_vowels += 1
     
     return num_vowels
+
+def getCount(inputStr):
+   return sum(inputStr.count(char) for char in ['a', 'e', 'i', 'o', 'u'])
