@@ -53,3 +53,7 @@ def reverse_words(text):
     for word in my_list:
         result.append(''.join(reversed(word)))
     return ' '.join(result)
+
+#optimized
+def reverse_words(str):
+  return ' '.join(w[::-1] for w in str.split(' '))
