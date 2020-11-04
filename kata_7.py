@@ -43,3 +43,13 @@ def find_short(s):
 #optimized
 def find_short(s):
     return min(len(x) for x in s.split())
+
+
+
+
+#https://www.codewars.com/kata/5259b20d6021e9e14c0010d4/train/python
+def reverse_words(text):
+    my_list, result = text.split(' '), []
+    for word in my_list:
+        result.append(''.join(reversed(word)))
+    return ' '.join(result)
