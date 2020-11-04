@@ -39,3 +39,7 @@ def find_short(s):
     for word in new_list:
         if len(word) < num: num = len(word)
     return num
+
+#optimized
+def find_short(s):
+    return min(len(x) for x in s.split())
