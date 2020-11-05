@@ -75,3 +75,6 @@ def count_bits(n):
     for c in bine: 
         if c == '1': add += 1
     return add
+
+#optimized
+countBits = lambda n: bin(n).count('1')
