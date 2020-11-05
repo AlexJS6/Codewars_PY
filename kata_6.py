@@ -13,3 +13,15 @@ def unique_in_order(iterable):
             result.append(c)
     result.remove('ö')
     return result
+
+
+
+
+#https://www.codewars.com/kata/541c8630095125aba6000c00/solutions/python
+def digital_root(number):
+    while len(str(number)) > 1:
+        new_arr = []
+        for c in str(number):
+            new_arr.append(int(c))
+        number = sum(new_arr)
+    return number'''

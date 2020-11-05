@@ -28,11 +28,6 @@ import os
 
 
 
-    
-
-
-
-
 #commit!
 
 os.system('pause')
