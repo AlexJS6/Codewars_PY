@@ -74,3 +74,26 @@ def square(i, board):
     cols = [x + 3*(i %  3) for x in range(3)]        
     
     return sorted([board[x][y] for x in rows for y in cols])
+
+
+
+
+#TODO
+'''#https://www.codewars.com/kata/521c2db8ddc89b9b7a0000c1/train/python
+def snail(snail_map):
+    length = len(snail_map)
+    god, result = 0, []
+    i = 0
+    while len(result) != length: #length = 3
+        for i in range(length - god):
+            result.append(snail_map[god][i])
+        for i in range(god +1,length-god):
+            result.append(snail_map[i][length-1])
+        god += 1 #1
+        i = length - god -1 #1
+        for i in range(i, god -2, -1): #must be length were god is
+            result.append(snail_map[length-god][i])
+        #i = 0 -> get 1,0
+        for i in range(i+god, length-god):
+            result.append(snail_map[i][god-1])
+        return result'''
