@@ -89,3 +89,7 @@ def array_diff(a, b):
                 a.remove(bchar)
                 array_diff(a, b)
     return a
+
+#optimized:
+def array_diff(a, b):
+    return [x for x in a if x not in b]
