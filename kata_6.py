@@ -78,3 +78,14 @@ def count_bits(n):
 
 #optimized
 countBits = lambda n: bin(n).count('1')
+
+
+
+#https://www.codewars.com/kata/523f5d21c841566fde000009/train/python
+def array_diff(a, b):
+    for bchar in b:
+        for achar in a:
+            if bchar == achar:
+                a.remove(bchar)
+                array_diff(a, b)
+    return a
