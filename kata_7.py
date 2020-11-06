@@ -65,3 +65,17 @@ def sum_two_smallest_numbers(numbers):
     numbers.sort()
     return sum(numbers[:2])
 
+
+
+#https://www.codewars.com/kata/52fba66badcd10859f00097e/train/python
+def disemvowel(string):
+    for x in string:
+        if x.lower() in 'aeoiu':
+            string = string.replace(x, '')
+    return string
+
+#optimized:
+def disemvowel(s):
+    for i in "aeiouAEIOU":
+        s = s.replace(i,'')
+    return s
