@@ -13,7 +13,10 @@ def sockMerchant(n, ar):
         result += len(test_arr) // 2
     return result
 
-#Easy#https://www.hackerrank.com/challenges/counting-valleys/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=warmup&h_r=next-challenge&h_v=zen
+
+
+#Easy
+# #https://www.hackerrank.com/challenges/counting-valleys/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=warmup&h_r=next-challenge&h_v=zen
 def countingValleys(steps, path):
     level, num, result = 'above', 0, 0
     for step in path:
@@ -27,3 +30,22 @@ def countingValleys(steps, path):
                 result += 1
                 level ='under'
     return result
+
+
+
+#Easy
+#https://www.hackerrank.com/challenges/jumping-on-the-clouds/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=warmup&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen
+def jumpingOnClouds(c):
+    i = result = 0
+    while i < len(c):
+        if i < len(c) -2:
+            if c[i] == 0 and c[i+1] == 0 and c[i+2] == 0:
+                result += 1
+                i += 2 
+                continue
+        if c[i] == 0:
+            result += 1
+            i += 1
+        else:
+            i += 1
+    return result -1
