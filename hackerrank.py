@@ -13,4 +13,17 @@ def sockMerchant(n, ar):
         result += len(test_arr) // 2
     return result
 
-    
+#Easy#https://www.hackerrank.com/challenges/counting-valleys/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=warmup&h_r=next-challenge&h_v=zen
+def countingValleys(steps, path):
+    level, num, result = 'above', 0, 0
+    for step in path:
+        if step == 'U':
+            num += 1
+            if num == 0 and level == 'under':
+                level = 'above'
+        if step == 'D':
+            num -= 1
+            if num < 0 and level == 'above':
+                result += 1
+                level ='under'
+    return result
