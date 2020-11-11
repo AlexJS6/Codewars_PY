@@ -49,3 +49,14 @@ def jumpingOnClouds(c):
         else:
             i += 1
     return result -1
+
+
+
+#Easy but pretty proud of my formula
+#https://www.hackerrank.com/challenges/repeated-string/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=warmup&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen
+def repeatedString(s, n):
+    rest = n % len(s)
+    new_num = n - rest
+    x = s.count('a')
+    y = len(s)
+    return math.ceil((new_num/y) * x) + s[:rest].count('a')
