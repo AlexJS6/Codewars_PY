@@ -79,3 +79,19 @@ def disemvowel(s):
     for i in "aeiouAEIOU":
         s = s.replace(i,'')
     return s
+
+
+
+#https://www.codewars.com/kata/5667e8f4e3f572a8f2000039/train/python
+def accum(s):
+    x, result = 1, ''
+    for i in s:
+        for j in range(0 ,x):
+            result += i.lower()
+        result += '-'
+        x += 1
+    return result.title()[:len(result)-1]
+
+#optimized:
+def accum(s):
+    return '-'.join([c.upper() + c.lower() * i for i, c in enumerate(s)])
