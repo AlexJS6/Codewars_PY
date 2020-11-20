@@ -84,3 +84,18 @@ def rotLeft(d, a):
         d.append(num)
         i += 1
     return d
+
+
+
+#https://www.hackerrank.com/challenges/new-year-chaos/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen
+def minimumBribes(q):
+    moves = 0 
+    q = [p-1 for p in q]
+    for i,p in enumerate(q):  
+        if p - i > 2:
+            print('Too chaotic')
+            return
+        for j in range(max(p-1,0),i):
+            if q[j] > p:
+                moves += 1
+    print(moves)
