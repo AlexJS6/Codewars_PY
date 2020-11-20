@@ -60,3 +60,15 @@ def repeatedString(s, n):
     x = s.count('a')
     y = len(s)
     return math.ceil((new_num/y) * x) + s[:rest].count('a')
+
+
+
+#https://www.hackerrank.com/challenges/2d-array/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays
+def hourglassSum(arr):
+    i, result = 0, []
+    while i < len(arr) -2:
+        for x in range(len(arr)-2): #i = cols, x = rows
+            my_int = arr[i][x] + arr[i][x+1] + arr[i][x+2] + arr[i+1][x+1] + arr[i+2][x] + arr[i+2][x+1] + arr[i+2][x+2]
+            result.append(my_int)
+        i += 1
+    return max(result)
