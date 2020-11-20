@@ -72,3 +72,15 @@ def hourglassSum(arr):
             result.append(my_int)
         i += 1
     return max(result)
+
+
+
+#https://www.hackerrank.com/challenges/ctci-array-left-rotation/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays&h_r=next-challenge&h_v=zen
+def rotLeft(d, a):
+    i = 0
+    while i < a:
+        num = d[0]
+        d.pop(0)
+        d.append(num)
+        i += 1
+    return d
