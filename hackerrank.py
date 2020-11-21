@@ -107,12 +107,26 @@ def minimumSwaps(arr):
     x = result = 0
     while x < len(arr):
         if arr[x] != x +1:
-            arr[x], arr[arr.index(x+1)] = arr[arr.index(x+1)], arr[x]
-            '''swapper = arr[x] #3
+            swapper = arr[x] #3
             index = arr.index(x+1)
             arr[x] = arr[index]
             arr[index] = swapper
-            result += 1'''
+            result += 1
         x += 1
     
     return (arr, result)
+#Optimized with hashtables:
+def minimumSwaps(arr):
+    sorted_list = sorted(arr)
+    index_dict = {i: x for x, i in enumerate(arr)}
+    result = 0
+
+    for x, i in enumerate(arr):
+        correct = sorted_list[x]
+        if i != correct:
+            swapper = index_dict[correct]
+            arr[swapper], arr[x] = arr[x], arr[swapper]
+            index_dict[i] = swapper
+            index_dict[correct] = x
+            result += 1
+    return result
