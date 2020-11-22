@@ -130,3 +130,20 @@ def minimumSwaps(arr):
             index_dict[correct] = x
             result += 1
     return result
+
+
+
+#https://www.hackerrank.com/challenges/ctci-bubble-sort/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=sorting
+def countSwaps(a):
+    correct = sorted(a)
+    result = 0
+    while True:
+        for i in range(len(a)-1):
+            if a[i] > a[i+1]:
+                a[i], a[i+1] = a[i+1], a[i]
+                result += 1
+        if correct == a:
+            break
+    print(f'Array is sorted in {result} swaps.')
+    print(f'First Element: {a[0]}')
+    print(f'Last Element: {a[-1]}')
