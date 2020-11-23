@@ -147,3 +147,14 @@ def countSwaps(a):
     print(f'Array is sorted in {result} swaps.')
     print(f'First Element: {a[0]}')
     print(f'Last Element: {a[-1]}')
+
+
+
+#https://www.hackerrank.com/challenges/mark-and-toys/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=sorting
+def maximumToys(prices, k):
+    result, sorted_prices = 0, sorted(prices)
+    for x in sorted_prices:
+        if x <= k:
+            result += 1
+            k -= x
+    return result
