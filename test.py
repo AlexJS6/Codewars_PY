@@ -14,10 +14,19 @@ import os
 from collections import Counter
 
 
-string = ['hi', 'heya', 'hi']
+def checkMagazine(magazine, note):
+    a = Counter(magazine)
+    b = Counter(note)
+    return "Yes" if a & b == b else "No"
 
-x = Counter(string)
-print(x)
+
+
+
+string = ['two', 'times', 'two', 'is', 'not', 'four']
+string2 = ['two', 'times', 'two', 'is', 'four']
+
+
+print(checkMagazine(string, string2))
 
 
 '''def checkMagazine(magazine, note):
