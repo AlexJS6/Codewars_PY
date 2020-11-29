@@ -95,3 +95,17 @@ def accum(s):
 #optimized:
 def accum(s):
     return '-'.join([c.upper() + c.lower() * i for i, c in enumerate(s)])
+
+
+
+
+#https://www.codewars.com/kata/55908aad6620c066bc00002a/train/python
+def xo(s):
+    print(s)
+    exes = ohs = 0
+    for letter in s:
+        if letter.lower() == 'x':
+            exes += 1
+        if letter.lower() == 'o':
+            ohs += 1
+    return True if exes == ohs else False
