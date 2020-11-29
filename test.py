@@ -9,7 +9,8 @@
 
 #import os
 
-
+string = 'hello'
+print(string.count('l'))
 
 
 

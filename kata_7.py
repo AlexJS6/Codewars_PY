@@ -109,3 +109,7 @@ def xo(s):
         if letter.lower() == 'o':
             ohs += 1
     return True if exes == ohs else False
+
+#optimized
+def xo(s):
+    return True if s.lower().count('x') == s.lower().count('o') else False
