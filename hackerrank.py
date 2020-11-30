@@ -237,3 +237,13 @@ def activityNotifications(expenditure, d):
         days += 1
         i += 1
     return result
+#Second optimization but still timing out
+from statistics import median
+def activityNotifications(expenditure, d):
+    result = i = 0
+    while i + d <= len(expenditure) -1: #loops until reaches a list that let's 1 value to check
+        a = median(sorted(expenditure[i:i+d])) #slices the d needed days
+        if a * 2 <= expenditure[i+d]:
+            result += 1
+        i += 1
+    return result

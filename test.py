@@ -11,22 +11,26 @@
 
 #Use slice!!
 #https://www.hackerrank.com/challenges/fraudulent-activity-notifications/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=sorting&h_r=next-challenge&h_v=zentivityNotifications(expenditure, d):
+from statistics import median
 def activityNotifications(expenditure, d):
     result = i = 0
-    days = d
-    def median(arr): #function that I call to calculate the median (parameter is already a sorted list)
-        if len(arr) % 2 != 0:
-            return arr[len(arr)//2]
-        else:
-            return arr[len(arr)//2 -1] + ((arr[len(arr)//2] - arr[len(arr)//2 -1]) / 2)
-
-    while days <= len(expenditure) -1: #loops until reaches a list that let's 1 value to check
-        a = median(sorted(expenditure[i:days])) #slices the d needed days
-        if a * 2 <= expenditure[days]:
+    while i + d <= len(expenditure) -1: #loops until reaches a list that let's 1 value to check
+        a = median(sorted(expenditure[i:i+d])) #slices the d needed days
+        if a * 2 <= expenditure[i+d]:
             result += 1
-        days += 1
         i += 1
     return result
+
+
+
+
+'''def activityNotifications(expenditure, d):
+count = 0
+for i in range(0, len(expenditure)-d):
+    med = statistics.median(expenditure[i:i+d])
+    if expenditure[i+d] >= med*2:
+        count +=1
+return count'''
 
     
 
