@@ -9,28 +9,35 @@
 
 #import os
 
-#Use slice!!
-#https://www.hackerrank.com/challenges/fraudulent-activity-notifications/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=sorting&h_r=next-challenge&h_v=zentivityNotifications(expenditure, d):
-from statistics import median
 def activityNotifications(expenditure, d):
-    result = i = 0
-    while i + d <= len(expenditure) -1: #loops until reaches a list that let's 1 value to check
-        a = median(sorted(expenditure[i:i+d])) #slices the d needed days
-        if a * 2 <= expenditure[i+d]:
-            result += 1
-        i += 1
-    return result
+    freq = {}
+    notify=0
+    def find(idx):
+        total_count = 0
+        for i in range(201): 
+            if i in freq:
+                total_count = total_count + freq[i]
+            if total_count >= idx:
+                return i
+    for i in range(len(expenditure)-1):
+        if expenditure[i] in freq:
+            freq[expenditure[i]]+=1
+        else:
+            freq[expenditure[i]]=1
+        #print(f"i: {i},val: {expenditure[i]}, freq: {freq}")
+        if i>=d-1:
+            if d%2 ==0:
+                median = (find(d//2)+find(d//2+1))/2
+            else:
+                median = find(d/2)
+            #print("median: ",median)
+            if expenditure[i+1]>= (median*2) :
+                notify +=1
+                print("notify: ",notify)
+            #remove the previous element from dictionary
+            freq[expenditure[i-d+1]]-=1
 
-
-
-
-'''def activityNotifications(expenditure, d):
-count = 0
-for i in range(0, len(expenditure)-d):
-    med = statistics.median(expenditure[i:i+d])
-    if expenditure[i+d] >= med*2:
-        count +=1
-return count'''
+    return notify  
 
     
 
