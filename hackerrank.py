@@ -237,6 +237,7 @@ def activityNotifications(expenditure, d):
         days += 1
         i += 1
     return result
+    
 #Second optimization but still timing out
 from statistics import median
 def activityNotifications(expenditure, d):
@@ -276,5 +277,4 @@ def activityNotifications(expenditure, d):
                 print("notify: ",notify)
             #remove the previous element from dictionary
             freq[expenditure[i-d+1]]-=1
-
     return notify  
