@@ -278,3 +278,18 @@ def activityNotifications(expenditure, d):
             #remove the previous element from dictionary
             freq[expenditure[i-d+1]]-=1
     return notify  
+
+
+
+
+#https://www.hackerrank.com/challenges/ctci-making-anagrams/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=strings
+from collections import Counter
+
+def makeAnagram(a, b):
+    counterA = Counter(a)
+    counterB = Counter(b)
+    result = 0
+    for x in counterA & counterB:
+        result += (counterA & counterB)[x]
+
+    return (len(a) + len(b)) - result * 2
