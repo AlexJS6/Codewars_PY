@@ -340,3 +340,42 @@ def substrCount(n, s):
                 #print(s[i:x])
         i += 1
     return count
+
+#optimized and working
+def substrCount(n, s):
+    l = []
+    count = 0
+    cur = None
+
+# 1st pass
+    for i in range(n):
+        if s[i] == cur:
+            #return s[i]
+            count += 1
+        else:
+            if cur is not None:
+                l.append((cur, count))
+            cur = s[i]
+            count = 1
+            #print(l)
+    l.append((cur, count))
+    #print(l)
+
+    ans = 0
+		
+# 2nd pass
+    for i in l:
+        #return i[1]
+        #return (i[1] * (i[1] +1)) // 2
+        ans += (i[1] * (i[1] + 1)) // 2
+        #print(ans)
+    #return ans
+
+# 3rd pass
+    for i in range(1, len(l) - 1):
+        #return l[i -1]
+        if l[i - 1][0] == l[i + 1][0] and l[i][1] == 1:
+            #return 'YE'
+            ans += min(l[i - 1][1], l[i + 1][1])
+
+    return ans
