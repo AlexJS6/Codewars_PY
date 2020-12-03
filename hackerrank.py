@@ -324,6 +324,8 @@ def isValid(s):
 
 
 #https://www.hackerrank.com/challenges/special-palindrome-again/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=strings
+# Too slow but working
+from collections import Counter
 def substrCount(n, s):
     #return s[0:3][::-1]
     count = i = 0
@@ -335,6 +337,6 @@ def substrCount(n, s):
             #return Counter(s[i:x])[letter]
             if s[i:x] == s[i:x][::-1] and len(Counter(s[i:x])) < 3 and Counter(s[i:x])[letter] < 2:
                 count += 1
-                print(s[i:x])
+                #print(s[i:x])
         i += 1
     return count
