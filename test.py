@@ -16,33 +16,32 @@
 from collections import Counter
 
 
-
-#https://www.hackerrank.com/challenges/sherlock-and-valid-string/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=strings&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen
-def isValid(s):
-    #return Counter(s).most_common()
-    counts = Counter(map(lambda x:x[1], Counter(s).most_common())) #key = number of times it appears, 
-    return counts
-    lcounts = sorted(counts.most_common())
-    return lcounts
-    l = len(lcounts)
-    #return lcounts[0][0]+1, 1
-    if l == 2 and ((lcounts[0] == (1,1) or lcounts[1] == (lcounts[0][0]+1,1))):
-        return "YES"
-    return "YES" if l == 1 else "NO"
-
-    
-
-
+#https://www.hackerrank.com/challenges/special-palindrome-again/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=strings
+def substrCount(n, s):
+    #return s[0:3][::-1]
+    count = i = 0
+    letter = ''
+    while i < n+1:
+        for x in range(i+1, n+1):
+            if len(tuple(Counter(s[i:x]))) > 1:
+                letter = tuple(Counter(s[i:x]))[1]
+            #return Counter(s[i:x])[letter]
+            if s[i:x] == s[i:x][::-1] and len(Counter(s[i:x])) < 3 and Counter(s[i:x])[letter] < 2:
+                count += 1
+                print(s[i:x])
+        i += 1
+    return count
 
 
 
 
-print(isValid('abb'))
-#print(isValid('aabbccddeefghi')) #NO
-#print(isValid('aabbcccc')) #NO #i = n
-#print(isValid('ffiibfdgaeadiaefgbhbdghhhbgdfgeiccbiehhfcggchgghadhdhagfbahhddgghbdehidbibaeaagaeeigffcebfbaieggabcfbiiedcabfihchdfabifahcbhagccbdfifhghcadfiadeeaheeddddiecaicbgigccageicehfdhdgafaddhffadigfhhcaedcedecafeacbdacgfgfeeibgaiffdehigebhhehiaahfidibccdcdagifgaihacihadecgifihbebffebdfbchbgigeccahgihbcbcaggebaaafgfedbfgagfediddghdgbgehhhifhgcedechahidcbchebheihaadbbbiaiccededchdagfhccfdefigfibifabeiaccghcegfbcghaefifbachebaacbhbfgfddeceababbacgffbagidebeadfihaefefegbghgddbbgddeehgfbhafbccidebgehifafgbghafacgfdccgifdcbbbidfifhdaibgigebigaedeaaiadegfefbhacgddhchgcbgcaeaieiegiffchbgbebgbehbbfcebciiagacaiechdigbgbghefcahgbhfibhedaeeiffebdiabcifgccdefabccdghehfibfiifdaicfedagahhdcbhbicdgibgcedieihcichadgchgbdcdagaihebbabhibcihicadgadfcihdheefbhffiageddhgahaidfdhhdbgciiaciegchiiebfbcbhaeagccfhbfhaddagfieihghfbaggiffbbfbecgaiiidccdceadbbdfgigibgcgchafccdchgifdeieicbaididhfcfdedbhaadedfageigfdehgcdaecaebebebfcieaecfagfdieaefdiedbcadchabhebgehiidfcgahcdhcdhgchhiiheffiifeegcfdgbdeffhgeghdfhbfbifgidcafbfcd')) #YES
-#print(isValid('aaaaaaabcc')) #YES
-#print(isValid('abcdfghhgfedecba')) #YES->NO
+
+
+
+
+print(substrCount(7, 'abcbaba'))
+#abcbaba
+
 
 
 
