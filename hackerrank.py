@@ -379,3 +379,24 @@ def substrCount(n, s):
             ans += min(l[i - 1][1], l[i + 1][1])
 
     return ans
+
+
+
+
+#https://www.hackerrank.com/challenges/sherlock-and-anagrams/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=dictionaries-hashmaps
+def sherlockAndAnagrams(s):
+    my_dict = {}
+    for first in range(len(s)):
+        for second in range(first +1, len(s)+1):
+            result = ''.join(sorted(s[first:second]))
+            if result in my_dict:
+                my_dict[result] += 1
+            else:
+                my_dict[result] = 1
+    
+    count = 0
+    for m, n in my_dict.items():
+        count += n*(n-1)/2
+        print(n*(n-1)/2)
+
+    return int(count)
