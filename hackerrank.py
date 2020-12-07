@@ -444,3 +444,16 @@ def minimumAbsoluteDifference(arr):
             print('x:', x, 'other', arr[i+1], abs(x - arr[i+1]))
             i += 1
     return pos
+
+# Working and optimized
+import math
+def minimumAbsoluteDifference(arr):
+    minimum = max(max(arr), max(arr) *-1) *2
+    arr = sorted(arr)
+    for i in range(math.ceil(len(arr)/2)):
+        head = abs(arr[i] - arr[i +1])
+        tail = abs(arr[-(i +1)] - arr[-(i +2)])
+
+        if minimum > min(head, tail):
+            minimum = min(head, tail)
+    return minimum
