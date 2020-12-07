@@ -424,3 +424,9 @@ def luckBalance(k, contests):
             print('addition:', sorted_important[x][0], 'x:', x)
     return result
     # to return sorted on [1] -> return sorted(important, key = lambda x: x[1], reverse = True)
+
+# Shorter
+def luckBalance(k, contests):
+    important = sorted([s[0] for s in contests if s[1] == 1], reverse = True)
+    unimportant = [s[0] for s in contests if s[1] == 0]
+    return sum(important[:k])-sum(important[k:])+sum(unimportant)
